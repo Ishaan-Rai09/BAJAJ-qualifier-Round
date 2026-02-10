@@ -24,8 +24,7 @@ npm run dev
 | ---------------- | ----------------------------------- |
 | `PORT`           | Server port (default: 3000)         |
 | `NODE_ENV`       | Environment mode (development/prod) |
-| `AI_API_KEY`     | Google Gemini API key               |
-| `GROK_API_KEY`   | Groq API key (llama-3.3-70b)        |
+| `AI_API_KEY`     | AI API key (Groq)                   |
 | `OFFICIAL_EMAIL` | Your Chitkara email address         |
 
 ## API Endpoints
@@ -92,25 +91,13 @@ curl -X POST http://localhost:3000/bfhl \
 
 #### AI Query
 
-Choose between Google Gemini or Groq (Llama 3.3) for AI-powered answers. Use the `?provider` query parameter.
-
-**Using Gemini:**
 ```bash
-curl -X POST "http://localhost:3000/bfhl?provider=gemini" \
-  -H "Content-Type: application/json" \
-  -d '{"AI": "What is the capital of France?"}'
-```
-
-**Using Groq:**
-```bash
-curl -X POST "http://localhost:3000/bfhl?provider=grok" \
+curl -X POST "http://localhost:3000/bfhl" \
   -H "Content-Type: application/json" \
   -d '{"AI": "What is the capital of France?"}'
 ```
 
 **Response:** `{ "is_success": true, "official_email": "...", "data": "Paris" }`
-
-> **Note:** The frontend UI includes a dropdown to select your preferred AI provider.
 
 ## Error Responses
 

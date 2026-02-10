@@ -13,7 +13,6 @@
     const fibInput = document.getElementById('fibInput');
     const arrayInput = document.getElementById('arrayInput');
     const aiInput = document.getElementById('aiInput');
-    const aiProvider = document.getElementById('aiProvider');
     const requestPreview = document.getElementById('requestPreview');
     const responsePreview = document.getElementById('responsePreview');
     const sendBtn = document.getElementById('sendBtn');
@@ -128,14 +127,7 @@
         const start = performance.now();
 
         try {
-            // Build URL with provider query param for AI requests
-            let url = '/bfhl';
-            if (currentOp === 'AI') {
-                const provider = aiProvider.value || 'gemini';
-                url += `?provider=${encodeURIComponent(provider)}`;
-            }
-
-            const res = await fetch(url, {
+            const res = await fetch('/bfhl', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)

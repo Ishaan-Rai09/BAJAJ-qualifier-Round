@@ -31,12 +31,9 @@ const bfhlController = async (req, res, next) => {
             case 'hcf':
                 data = hcfService(value);
                 break;
-            case 'AI': {
-                // Get AI provider from query parameter (default: gemini)
-                const provider = req.query.provider || 'gemini';
-                data = await aiService(value, provider);
+            case 'AI':
+                data = await aiService(value);
                 break;
-            }
             default:
                 return res.status(400).json({
                     is_success: false,

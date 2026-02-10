@@ -1,8 +1,7 @@
 const axios = require('axios');
 
 /**
- * Query AI API for a single-word factual answer.
- * Uses Groq API (llama-3.3-70b-versatile model)
+ * Query AI API (Gemini) for a single-word factual answer.
  * @param {string} question - Natural language question
  * @returns {Promise<string>} Single-word answer
  */
